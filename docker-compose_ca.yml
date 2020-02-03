@@ -1,0 +1,28 @@
+#
+# Copyright IBM Corp All Rights Reserved
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+version: '2'
+
+networks:
+  basicn:
+
+services:
+  ca.mch.test:
+   image: hyperledger/fabric-ca
+   environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_CA_NAME=ca.mch.test
+      - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/cacerts/ca.mch.test-cert.pem
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/keystore/8b474d9306a0adb0e2606b3b2dbef8598a724ff5d52ae317f2729a6c24e20ea6_sk
+   ports:
+      - "7054:7054"
+   command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+   volumes:
+      - ./crypto-config/peerOrganizations/mch.test/ca/:/etc/hyperledger/fabric-ca-server-config
+   container_name: ca.mch.test
+   networks:
+      - basicn
+
+

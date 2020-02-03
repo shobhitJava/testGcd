@@ -1,0 +1,42 @@
+OrdererOrgs:
+  - Name: TFM
+    Domain: tfm.test
+    Specs:
+      - Hostname: orderer
+
+PeerOrgs:
+  - Name: importer
+    Domain: importer.test
+    Specs:
+      - Hostname: peer0
+
+    Users:
+      Count: 0
+  - Name: exporter
+    Domain: exporter.test
+    Specs:
+      - Hostname: peer0
+
+    Users:
+      Count: 0
+  - Name: importerbank
+    Domain: importerbank.test
+    Specs:
+      - Hostname: peer0
+
+    Users:
+      Count: 0
+  - Name: exporterbank
+    Domain: exporterbank.test
+    Specs:
+      - Hostname: peer0
+
+    Users:
+      Count: 0  
+  - Name: tfm
+    Domain: tfm.test
+    Specs:
+      - Hostname: peer0
+
+    Users:
+      Count: 0
